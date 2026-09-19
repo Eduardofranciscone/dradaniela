@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dra. Daniela Altoé | Endocrinologista no Rio de Janeiro</title>
+    <meta name="description" content="Dra. Daniela Altoé, médica endocrinologista no Rio de Janeiro, com atendimento na Zona Sul e consultas online para todo o Brasil. Emagrecimento, hormônios, tireoide, diabetes e saúde metabólica.">
+    
+    <!-- Open Graph tags for social sharing -->
+    <meta property="og:title" content="Dra. Daniela Altoé | Endocrinologia Leve">
+    <meta property="og:description" content="Endocrinologia leve para cuidar de você por inteiro. Atendimento presencial no RJ e online para todo o Brasil.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.dradanielaaltoe.com.br">
+    <!-- Placeholder for OG Image -->
+    <meta property="og:image" content="dradanielaaltoe-img.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Playfair Display (Serif) & Inter (Sans-serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <!-- Phosphor Icons for elegant iconography -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-white': '#FCFBF8',
+                        'brand-offwhite': '#F5F1EA',
+                        'brand-sand': '#E8DED1',
+                        'brand-sage': '#A8B4A3',
+                        'brand-green-deep': '#5E6D61',
+                        'brand-text': '#30322F',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom base styles for smooth rendering */
+        body {
+            background-color: #FCFBF8;
+            color: #30322F;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .logo-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        /* Typography utilities */
+        .text-balance {
+            text-wrap: balance;
+        }
+
+        /* Utilities for scroll reveal animation via JS */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Accordion transition styles */
+        .accordion-content {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .accordion-item.active .accordion-content {
+            max-height: 500px; /* Arbitrary large number to allow content to fit */
+            opacity: 1;
+            padding-bottom: 1.5rem;
+        }
+        .accordion-icon {
+            transition: transform 0.3s ease;
+        }
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Mobile Menu Animation */
+        #mobile-menu {
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            transform-origin: top center;
+        }
+        #mobile-menu.menu-closed {
+            opacity: 0;
+            transform: scaleY(0);
+            pointer-events: none;
+        }
+        #mobile-menu.menu-open {
+            opacity: 1;
+            transform: scaleY(1);
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body class="font-sans font-light selection:bg-brand-sage selection:text-white">
+
+    <!-- Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-brand-white/90 backdrop-blur-md border-b border-brand-sand/50 transition-all duration-300" id="header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex flex-col justify-center">
+                    <a href="#" class="group">
+                        <img src="./logo.jpg" alt="logo-daniela" class="logo-img">
+                        
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#inicio" class="text-sm font-medium text-brand-text/80 hover:text-brand-green-deep transition-colors">Início</a>
+                    <a href="#sobre" class="text-sm font-medium text-brand-text/80 hover:text-brand-green-deep transition-colors">Sobre</a>
+                    <a href="#especialidades" class="text-sm font-medium text-brand-text/80 hover:text-brand-green-deep transition-colors">Especialidades</a>
+                    <a href="#endocrinologia-leve" class="text-sm font-medium text-brand-text/80 hover:text-brand-green-deep transition-colors">Endocrinologia Leve</a>
+                    <a href="#contato" class="text-sm font-medium text-brand-text/80 hover:text-brand-green-deep transition-colors">Contato</a>
+                    <a href="https://wa.me/5521993691375" target="_blank" rel="noopener noreferrer" class="bg-brand-green-deep text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-brand-sage transition-all duration-300 shadow-sm hover:shadow-md">Agende sua consulta</a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-brand-text hover:text-brand-green-deep focus:outline-none p-2 transition-transform duration-300" aria-label="Abrir menu">
+                        <i class="ph ph-list text-3xl transition-transform duration-300" id="mobile-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="md:hidden bg-brand-white border-t border-brand-sand/50 absolute w-full left-0 shadow-2xl menu-closed z-40">
+            <div class="px-4 pt-2 pb-6 space-y-1 flex flex-col text-center">
+                <a href="#inicio" class="mobile-link block px-3 py-3 text-base font-medium text-brand-text/80 hover:text-brand-green-deep hover:bg-brand-offwhite rounded-md">Início</a>
+                <a href="#sobre" class="mobile-link block px-3 py-3 text-base font-medium text-brand-text/80 hover:text-brand-green-deep hover:bg-brand-offwhite rounded-md">Sobre</a>
+                <a href="#especialidades" class="mobile-link block px-3 py-3 text-base font-medium text-brand-text/80 hover:text-brand-green-deep hover:bg-brand-offwhite rounded-md">Especialidades</a>
+                <a href="#endocrinologia-leve" class="mobile-link block px-3 py-3 text-base font-medium text-brand-text/80 hover:text-brand-green-deep hover:bg-brand-offwhite rounded-md">Endocrinologia Leve</a>
+                <a href="#contato" class="mobile-link block px-3 py-3 text-base font-medium text-brand-text/80 hover:text-brand-green-deep hover:bg-brand-offwhite rounded-md">Contato</a>
+                <div class="pt-4 pb-2">
+                    <a href="https://wa.me/5521993691375" target="_blank" rel="noopener noreferrer" class="block w-full bg-brand-green-deep text-white px-5 py-3 rounded-full text-base font-medium hover:bg-brand-sage transition-all text-center">Agende sua consulta</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20"> <!-- Padding top to account for fixed header -->
+
+        <!-- Hero Section -->
+        <section id="inicio" class="relative min-h-[90vh] flex items-center bg-brand-white overflow-hidden">
+            <!-- Subtle background decoration -->
+            <div class="absolute top-0 right-0 w-1/2 h-full bg-brand-offwhite/50 rounded-bl-[100px] -z-10 hidden lg:block"></div>
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-sand/30 rounded-full blur-3xl opacity-50 -z-10"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 lg:py-0">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                    
+                    <!-- Text Content -->
+                    <div class="animate-fade-in-up z-10 order-2 lg:order-1 pt-8 lg:pt-0">
+                        <span class="inline-block py-1 px-3 rounded-full bg-brand-offwhite border border-brand-sand text-xs font-medium text-brand-sage uppercase tracking-widest mb-6">
+                            Dra. Daniela Altoé | Endocrinologia
+                        </span>
+                        
+                        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-brand-text leading-[1.1] mb-6 text-balance">
+                            Endocrinologia <i class="text-brand-sage font-serif italic">leve</i> para cuidar de você por inteiro.
+                        </h1>
+                        
+                        <p class="text-lg text-brand-text/70 mb-8 max-w-lg leading-relaxed font-light">
+                            Emagrecimento, saúde metabólica, hormônios, tireoide e diabetes com acompanhamento individualizado e uma abordagem mais leve.
+                        </p>
+                        
+                        <div class="flex items-center space-x-2 mb-10 text-sm text-brand-text/60 font-medium">
+                            <i class="ph ph-map-pin text-brand-sage text-lg"></i>
+                            <span>Presencial no Rio de Janeiro</span>
+                            <span class="mx-2">•</span>
+                            <i class="ph ph-globe text-brand-sage text-lg"></i>
+                            <span>Online para todo o Brasil</span>
+                        </div>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="https://wa.me/5521993691375" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-brand-green-deep hover:bg-brand-sage transition-all duration-300 text-center">
+                                Agende sua consulta
+                            </a>
+                            <a href="#endocrinologia-leve" class="inline-flex justify-center items-center px-8 py-4 border border-brand-sand text-base font-medium rounded-full text-brand-text bg-transparent hover:bg-brand-offwhite transition-all duration-300 text-center">
+                                Conheça a Endocrinologia Leve
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Image Content -->
+                    <div class="relative animate-fade-in order-1 lg:order-2 flex justify-center lg:justify-end">
+                        <div class="relative w-full max-w-md lg:max-w-lg">
+                            <!-- Image Frame/Mask -->
+                            <div class="aspect-[4/5] rounded-[40px] overflow-hidden shadow-2xl relative z-10 border-8 border-white">
+                                <!-- Using provided image -->
+                                <img src="daniela.jpg" alt="Dra. Daniela Altoé sentada, médica endocrinologista" class="w-full h-full object-cover object-center object-top">
+                            </div>
+                            
+                            <!-- Decorative elements -->
+                            <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-brand-sand rounded-full -z-0 opacity-70"></div>
+                            <div class="absolute top-1/4 -right-8 w-24 h-24 border border-brand-sage/40 rounded-full -z-0"></div>
+                            
+                            <!-- Concept Badge -->
+                            <div class="absolute bottom-8 -left-4 lg:-left-12 bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-xl z-20 flex items-center gap-3 border border-brand-offwhite">
+                                <div class="w-10 h-10 rounded-full bg-brand-offwhite flex items-center justify-center text-brand-sage">
+                                    <i class="ph ph-sparkle text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-semibold text-brand-text uppercase tracking-wider">Conceito</p>
+                                    <p class="font-serif italic text-brand-green-deep">Endocrinologia leve!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Microelement -->
+        <section class="bg-brand-green-deep py-4 border-y border-brand-sage/30">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-center items-center gap-x-8 gap-y-2 text-white/90 text-xs sm:text-sm font-medium tracking-widest uppercase text-center">
+                <span>Endocrinologia e Metabologia</span>
+                <span class="hidden sm:inline text-brand-sage">•</span>
+                <span>CRM 52.132510-8</span>
+                <span class="hidden sm:inline text-brand-sage">•</span>
+                <span>Rio de Janeiro + Online</span>
+            </div>
+        </section>
+
+        <!-- Endocrinologia Leve Concept -->
+        <section id="endocrinologia-leve" class="py-24 bg-brand-offwhite relative">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-16 bg-brand-sand"></div>
+            
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal-on-scroll">
+                <i class="ph ph-leaf text-4xl text-brand-sage mb-6 opacity-70"></i>
+                
+                <h2 class="font-serif text-3xl md:text-4xl text-brand-text mb-8">
+                    Endocrinologia, mas de um jeito mais <span class="italic text-brand-sage">leve.</span>
+                </h2>
+                
+                <div class="space-y-6 text-brand-text/80 text-lg leading-relaxed font-light">
+                    <p>
+                        Cuidar dos hormônios e do metabolismo não precisa significar transformar a saúde em uma lista interminável de restrições.
+                    </p>
+                    <p>
+                        A proposta da Endocrinologia Leve é olhar para cada paciente de forma individualizada, considerando suas necessidades, sua rotina e seus objetivos dentro de uma condução médica responsável.
+                    </p>
+                </div>
+                
+                <div class="mt-16 pt-12 border-t border-brand-sand relative">
+                    <!-- Subtle quote marks -->
+                    <span class="absolute top-6 left-1/2 -translate-x-1/2 text-6xl font-serif text-brand-sand/40 leading-none">"</span>
+                    <p class="font-serif text-2xl md:text-3xl text-brand-green-deep italic relative z-10 mt-4">
+                        Leve na forma. Cuidadosa na medicina.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="sobre" class="py-24 bg-brand-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    
+                    <!-- Image -->
+                    <div class="relative reveal-on-scroll order-2 lg:order-1">
+                        <div class="aspect-[3/4] max-w-md mx-auto rounded-[30px] overflow-hidden relative z-10 shadow-xl">
+                             <img src="dradanielaaltoe-img.jpg" alt="Dra. Daniela Altoé sorrindo no consultório" class="w-full h-full object-cover object-top">
+                        </div>
+                        <!-- Background decoration -->
+                        <div class="absolute -top-8 -left-8 w-64 h-64 bg-brand-offwhite rounded-full -z-0"></div>
+                        <div class="absolute -bottom-8 -right-8 w-48 h-48 bg-brand-sand/40 rounded-full -z-0"></div>
+                    </div>
+                    
+                    <!-- Text -->
+                    <div class="reveal-on-scroll order-1 lg:order-2">
+                        <span class="text-brand-sage font-semibold tracking-widest text-xs uppercase mb-4 block">Sobre a profissional</span>
+                        
+                        <h2 class="font-serif text-3xl md:text-4xl text-brand-text mb-8 text-balance">
+                            Cuidar da saúde também pode ser uma experiência leve.
+                        </h2>
+                        
+                        <div class="space-y-6 text-brand-text/70 text-base md:text-lg font-light leading-relaxed mb-8">
+                            <p>
+                                A Dra. Daniela Altoé atua em Endocrinologia e Metabologia com foco em questões relacionadas ao metabolismo, emagrecimento, hormônios, tireoide e diabetes.
+                            </p>
+                            <p>
+                                Sua proposta de Endocrinologia Leve busca tornar o acompanhamento mais próximo, individualizado e integrado à realidade de cada paciente.
+                            </p>
+                        </div>
+                        
+                        <div class="pt-6 border-t border-brand-offwhite">
+                            <h3 class="font-serif text-xl text-brand-text mb-1">Dra. Daniela Altoé</h3>
+                            <p class="text-brand-text/60 text-sm">Médica • CRM 52.132510-8</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Areas of Practice (Especialidades) -->
+        <section id="especialidades" class="py-24 bg-brand-offwhite">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
+                    <h2 class="font-serif text-3xl md:text-4xl text-brand-text mb-4">
+                        Cuidado metabólico de forma individualizada.
+                    </h2>
+                    <p class="text-brand-text/70 text-lg font-light">
+                        Áreas de atuação e acompanhamento em Endocrinologia e Metabologia.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                    <!-- Area 1 -->
+                    <div class="bg-brand-white p-8 rounded-3xl shadow-sm border border-brand-sand/30 hover:shadow-md transition-shadow reveal-on-scroll group">
+                        <span class="text-brand-sand text-4xl font-serif mb-4 block group-hover:text-brand-sage transition-colors duration-500">01</span>
+                        <h3 class="text-xl font-medium text-brand-text mb-3 font-serif">Emagrecimento</h3>
+                        <p class="text-brand-text/70 text-sm font-light leading-relaxed">
+                            Acompanhamento médico individualizado para quem busca cuidar do peso e da saúde metabólica de forma responsável e sustentável.
+                        </p>
+                    </div>
+
+                    <!-- Area 2 -->
+                    <div class="bg-brand-white p-8 rounded-3xl shadow-sm border border-brand-sand/30 hover:shadow-md transition-shadow reveal-on-scroll group" style="transition-delay: 100ms;">
+                        <span class="text-brand-sand text-4xl font-serif mb-4 block group-hover:text-brand-sage transition-colors duration-500">02</span>
+                        <h3 class="text-xl font-medium text-brand-text mb-3 font-serif">Reposição hormonal</h3>
+                        <p class="text-brand-text/70 text-sm font-light leading-relaxed">
+                            Avaliação e acompanhamento de questões hormonais de acordo com as necessidades clínicas de cada paciente.
+                        </p>
+                    </div>
+
+                    <!-- Area 3 -->
+                    <div class="bg-brand-white p-8 rounded-3xl shadow-sm border border-brand-sand/30 hover:shadow-md transition-shadow reveal-on-scroll group" style="transition-delay: 200ms;">
+                        <span class="text-brand-sand text-4xl font-serif mb-4 block group-hover:text-brand-sage transition-colors duration-500">03</span>
+                        <h3 class="text-xl font-medium text-brand-text mb-3 font-serif">Tireoide</h3>
+                        <p class="text-brand-text/70 text-sm font-light leading-relaxed">
+                            Avaliação e acompanhamento de alterações relacionadas à tireoide, incluindo condições como hipotireoidismo e hipertireoidismo.
+                        </p>
+                    </div>
+
+                    <!-- Area 4 -->
+                    <div class="bg-brand-white p-8 rounded-3xl shadow-sm border border-brand-sand/30 hover:shadow-md transition-shadow reveal-on-scroll group">
+                        <span class="text-brand-sand text-4xl font-serif mb-4 block group-hover:text-brand-sage transition-colors duration-500">04</span>
+                        <h3 class="text-xl font-medium text-brand-text mb-3 font-serif">Diabetes</h3>
+                        <p class="text-brand-text/70 text-sm font-light leading-relaxed">
+                            Acompanhamento médico voltado ao controle da condição e à redução do risco de complicações.
+                        </p>
+                    </div>
+
+                    <!-- Area 5 -->
+                    <div class="bg-brand-white p-8 rounded-3xl shadow-sm border border-brand-sand/30 hover:shadow-md transition-shadow reveal-on-scroll group" style="transition-delay: 100ms;">
+                        <span class="text-brand-sand text-4xl font-serif mb-4 block group-hover:text-brand-sage transition-colors duration-500">05</span>
+                        <h3 class="text-xl font-medium text-brand-text mb-3 font-serif">Saúde metabólica</h3>
+                        <p class="text-brand-text/70 text-sm font-light leading-relaxed">
+                            Cuidado integrado de aspectos relacionados ao metabolismo e à saúde geral, sempre considerando as particularidades de cada paciente.
+                        </p>
+                    </div>
+
+                    <!-- Area 6 -->
+                    <div class="bg-brand-white p-8 rounded-3xl shadow-sm border border-brand-sand/30 hover:shadow-md transition-shadow reveal-on-scroll group" style="transition-delay: 200ms;">
+                        <span class="text-brand-sand text-4xl font-serif mb-4 block group-hover:text-brand-sage transition-colors duration-500">06</span>
+                        <h3 class="text-xl font-medium text-brand-text mb-3 font-serif">Lipedema</h3>
+                        <p class="text-brand-text/70 text-sm font-light leading-relaxed">
+                            Acompanhamento clínico voltado às necessidades de pacientes com lipedema.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Focus Area: Emagrecimento -->
+        <section class="py-24 bg-brand-white border-b border-brand-offwhite">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="reveal-on-scroll">
+                        <i class="ph ph-scales text-3xl text-brand-sage mb-6"></i>
+                        <h2 class="font-serif text-3xl md:text-4xl text-brand-text mb-6">
+                            Emagrecer não precisa ser uma batalha.
+                        </h2>
+                        <p class="text-brand-text/70 text-lg font-light leading-relaxed mb-6">
+                            O acompanhamento para emagrecimento deve considerar muito mais do que o número na balança. Metabolismo, rotina, histórico, hábitos e necessidades individuais fazem parte de uma avaliação médica cuidadosa.
+                        </p>
+                        
+                        <!-- Discreet medication note -->
+                        <div class="bg-brand-offwhite/50 p-5 rounded-2xl border border-brand-sand/40 mt-8">
+                            <h4 class="text-sm font-medium text-brand-text mb-2 flex items-center gap-2">
+                                <i class="ph ph-pill text-brand-sage"></i>
+                                Quando há indicação médica
+                            </h4>
+                            <p class="text-xs text-brand-text/60 font-light leading-relaxed">
+                                Em determinadas situações, tratamentos farmacológicos podem fazer parte do acompanhamento, sempre após avaliação médica e considerando as necessidades e condições individuais do paciente.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="reveal-on-scroll flex justify-center md:justify-end">
+                        <div class="aspect-square max-w-sm w-full rounded-full bg-brand-sand/20 overflow-hidden relative p-4 border border-brand-sand">
+                             <!-- Aesthetic abstract image representing lightness/balance -->
+                             <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&q=80&w=800&h=800" alt="Alimentação leve e equilibrada" class="w-full h-full object-cover rounded-full mix-blend-multiply opacity-80">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Focus Area: Hormônios -->
+        <section class="py-24 bg-brand-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    
+                    <div class="reveal-on-scroll order-2 md:order-1 flex justify-center md:justify-start">
+                        <div class="aspect-[4/3] max-w-md w-full rounded-3xl overflow-hidden relative shadow-sm">
+                             <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=800&h=600" alt="Prática de atividades para bem-estar" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+
+                    <div class="reveal-on-scroll order-1 md:order-2">
+                        <i class="ph ph-drop text-3xl text-brand-sage mb-6"></i>
+                        <h2 class="font-serif text-3xl md:text-4xl text-brand-text mb-6">
+                            Hormônios também fazem parte da história.
+                        </h2>
+                        <div class="space-y-4 text-brand-text/70 text-lg font-light leading-relaxed">
+                            <p>
+                                Questões hormonais podem impactar diferentes aspectos da saúde e do bem-estar, desde a energia diária até fases de transição como menopausa ou andropausa.
+                            </p>
+                            <p>
+                                A avaliação médica individualizada é fundamental para compreender cada situação clínica e definir a conduta adequada para acompanhamento e reposição, quando necessária.
+                            </p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- How it works -->
+        <section class="py-24 bg-brand-green-deep text-brand-white relative overflow-hidden">
+            <!-- Decorative subtle pattern/blur -->
+            <div class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
+                    <h2 class="font-serif text-3xl md:text-4xl mb-4 text-white">
+                        Seu acompanhamento começa antes da consulta.
+                    </h2>
+                    <p class="text-white/70 text-lg font-light">
+                        Uma jornada de cuidado estruturada para acolher e compreender suas necessidades.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Step 1 -->
+                    <div class="reveal-on-scroll">
+                        <div class="w-12 h-12 rounded-full border border-brand-sage/50 flex items-center justify-center text-brand-sage text-xl font-serif mb-6">01</div>
+                        <h3 class="text-xl font-medium mb-3 text-white">Agendamento</h3>
+                        <p class="text-white/60 font-light text-sm">
+                            Escolha a modalidade de atendimento mais adequada: presencial ou online.
+                        </p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="reveal-on-scroll" style="transition-delay: 100ms;">
+                        <div class="w-12 h-12 rounded-full border border-brand-sage/50 flex items-center justify-center text-brand-sage text-xl font-serif mb-6">02</div>
+                        <h3 class="text-xl font-medium mb-3 text-white">Consulta</h3>
+                        <p class="text-white/60 font-light text-sm">
+                            Conversa detalhada e avaliação médica individualizada para entender seu histórico.
+                        </p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="reveal-on-scroll" style="transition-delay: 200ms;">
+                        <div class="w-12 h-12 rounded-full border border-brand-sage/50 flex items-center justify-center text-brand-sage text-xl font-serif mb-6">03</div>
+                        <h3 class="text-xl font-medium mb-3 text-white">Plano de cuidado</h3>
+                        <p class="text-white/60 font-light text-sm">
+                            Definição da conduta médica adequada ao seu caso e estilo de vida.
+                        </p>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="reveal-on-scroll" style="transition-delay: 300ms;">
+                        <div class="w-12 h-12 rounded-full border border-brand-sage/50 flex items-center justify-center text-brand-sage text-xl font-serif mb-6">04</div>
+                        <h3 class="text-xl font-medium mb-3 text-white">Acompanhamento</h3>
+                        <p class="text-white/60 font-light text-sm">
+                            Continuidade do cuidado e ajustes conforme a sua evolução e necessidade clínica.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Differentiators -->
+        <section class="py-24 bg-brand-offwhite">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 reveal-on-scroll">
+                    <h2 class="font-serif text-3xl md:text-4xl text-brand-text mb-4">
+                        Uma endocrinologia mais próxima da vida real.
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    
+                    <div class="bg-brand-white p-8 rounded-2xl flex gap-6 items-start shadow-sm border border-brand-sand/20 reveal-on-scroll">
+                        <div class="mt-1 bg-brand-offwhite p-3 rounded-xl text-brand-sage">
+                            <i class="ph ph-user text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-medium text-brand-text mb-2 tracking-wide uppercase text-xs">Individualização</h3>
+                            <p class="text-brand-text/70 font-light text-sm leading-relaxed">
+                                Cada paciente possui uma história, uma rotina e necessidades metabólicas próprias que guiam a conduta.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-white p-8 rounded-2xl flex gap-6 items-start shadow-sm border border-brand-sand/20 reveal-on-scroll" style="transition-delay: 100ms;">
+                        <div class="mt-1 bg-brand-offwhite p-3 rounded-xl text-brand-sage">
+                            <i class="ph ph-heart text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-medium text-brand-text mb-2 tracking-wide uppercase text-xs">Acolhimento</h3>
+                            <p class="text-brand-text/70 font-light text-sm leading-relaxed">
+                                Uma consulta médica com espaço para ouvir, compreender e dialogar sem julgamentos.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-white p-8 rounded-2xl flex gap-6 items-start shadow-sm border border-brand-sand/20 reveal-on-scroll">
+                        <div class="mt-1 bg-brand-offwhite p-3 rounded-xl text-brand-sage">
+                            <i class="ph ph-books text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-medium text-brand-text mb-2 tracking-wide uppercase text-xs">Ciência</h3>
+                            <p class="text-brand-text/70 font-light text-sm leading-relaxed">
+                                Decisões terapêuticas fundamentadas em avaliação médica criteriosa e conhecimento técnico.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-white p-8 rounded-2xl flex gap-6 items-start shadow-sm border border-brand-sand/20 reveal-on-scroll" style="transition-delay: 100ms;">
+                        <div class="mt-1 bg-brand-offwhite p-3 rounded-xl text-brand-sage">
+                            <i class="ph ph-feather text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-medium text-brand-text mb-2 tracking-wide uppercase text-xs">Leveza</h3>
+                            <p class="text-brand-text/70 font-light text-sm leading-relaxed">
+                                Uma abordagem que busca tornar o cuidado com a saúde possível de ser incorporado à sua rotina real.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Locations -->
+        <section class="py-24 bg-brand-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- Presencial -->
+                    <div class="bg-brand-offwhite rounded-[2rem] p-10 flex flex-col items-center text-center reveal-on-scroll border border-brand-sand/30">
+                        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-brand-green-deep shadow-sm mb-6">
+                            <i class="ph ph-buildings text-3xl"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl text-brand-text mb-2">Presencial</h3>
+                        <p class="text-brand-text/70 font-light mb-8">Rio de Janeiro — Zona Sul</p>
+                        <a href="https://wa.me/5521993691375?text=Olá, gostaria de agendar uma consulta PRESENCIAL com a Dra. Daniela." target="_blank" rel="noopener noreferrer" class="mt-auto px-8 py-3 border border-brand-green-deep text-brand-green-deep hover:bg-brand-green-deep hover:text-white rounded-full font-medium transition-colors text-sm w-full max-w-xs">
+                            Agendar consulta presencial
+                        </a>
+                    </div>
+
+                    <!-- Online -->
+                    <div class="bg-brand-offwhite rounded-[2rem] p-10 flex flex-col items-center text-center reveal-on-scroll border border-brand-sand/30" style="transition-delay: 100ms;">
+                        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-brand-sage shadow-sm mb-6">
+                            <i class="ph ph-laptop text-3xl"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl text-brand-text mb-2">Online</h3>
+                        <p class="text-brand-text/70 font-light mb-8">Consultas para todo o Brasil</p>
+                        <a href="https://wa.me/5521993691375?text=Olá, gostaria de saber mais sobre a consulta ONLINE com a Dra. Daniela." target="_blank" rel="noopener noreferrer" class="mt-auto px-8 py-3 border border-brand-sage text-brand-sage hover:bg-brand-sage hover:text-white rounded-full font-medium transition-colors text-sm w-full max-w-xs">
+                            Agendar consulta online
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Intermediate CTA -->
+        <section class="py-24 bg-[#E8DED1]/20 border-y border-brand-sand/20">
+            <div class="max-w-4xl mx-auto px-4 text-center reveal-on-scroll">
+                <h2 class="font-serif text-3xl md:text-4xl text-brand-text mb-6">
+                    Cuidar de você pode começar com uma conversa.
+                </h2>
+                <p class="text-brand-text/70 text-lg font-light mb-10">
+                    Agende sua consulta com a Dra. Daniela Altoé.
+                </p>
+                <a href="https://wa.me/5521993691375" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-brand-green-deep text-white rounded-full font-medium hover:bg-brand-sage transition-all shadow-md hover:shadow-lg">
+                    <i class="ph ph-whatsapp-logo text-xl"></i>
+                    Agende sua consulta
+                </a>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-24 bg-brand-white">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 reveal-on-scroll">
+                    <h2 class="font-serif text-3xl text-brand-text mb-4">Perguntas Frequentes</h2>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="accordion-item border border-brand-sand/40 rounded-2xl bg-brand-offwhite/30 overflow-hidden reveal-on-scroll">
+                        <button class="accordion-button w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                            <span class="font-medium text-brand-text text-[15px]">A Dra. Daniela atende presencialmente e online?</span>
+                            <i class="ph ph-caret-down text-brand-sage accordion-icon"></i>
+                        </button>
+                        <div class="accordion-content px-6 text-brand-text/70 font-light text-sm leading-relaxed">
+                            <p>Sim. Os atendimentos são realizados presencialmente no Rio de Janeiro, na Zona Sul, e também de forma online para todo o Brasil.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="accordion-item border border-brand-sand/40 rounded-2xl bg-brand-offwhite/30 overflow-hidden reveal-on-scroll">
+                        <button class="accordion-button w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                            <span class="font-medium text-brand-text text-[15px]">Quais são as principais áreas de atendimento?</span>
+                            <i class="ph ph-caret-down text-brand-sage accordion-icon"></i>
+                        </button>
+                        <div class="accordion-content px-6 text-brand-text/70 font-light text-sm leading-relaxed">
+                            <p>A atuação inclui Endocrinologia e Metabologia, com foco em emagrecimento, reposição hormonal, tireoide, diabetes, saúde metabólica e lipedema.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="accordion-item border border-brand-sand/40 rounded-2xl bg-brand-offwhite/30 overflow-hidden reveal-on-scroll">
+                        <button class="accordion-button w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                            <span class="font-medium text-brand-text text-[15px]">A consulta online está disponível para todo o Brasil?</span>
+                            <i class="ph ph-caret-down text-brand-sage accordion-icon"></i>
+                        </button>
+                        <div class="accordion-content px-6 text-brand-text/70 font-light text-sm leading-relaxed">
+                            <p>Sim. A Dra. Daniela realiza atendimento online para pacientes de todo o Brasil, utilizando plataforma segura para telemedicina.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="accordion-item border border-brand-sand/40 rounded-2xl bg-brand-offwhite/30 overflow-hidden reveal-on-scroll">
+                        <button class="accordion-button w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                            <span class="font-medium text-brand-text text-[15px]">O tratamento para emagrecimento utiliza medicamentos?</span>
+                            <i class="ph ph-caret-down text-brand-sage accordion-icon"></i>
+                        </button>
+                        <div class="accordion-content px-6 text-brand-text/70 font-light text-sm leading-relaxed">
+                            <p>Quando houver indicação médica, medicamentos podem fazer parte do tratamento. A decisão depende da avaliação criteriosa e individual de cada paciente.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="accordion-item border border-brand-sand/40 rounded-2xl bg-brand-offwhite/30 overflow-hidden reveal-on-scroll">
+                        <button class="accordion-button w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                            <span class="font-medium text-brand-text text-[15px]">A Dra. Daniela atende casos relacionados à tireoide?</span>
+                            <i class="ph ph-caret-down text-brand-sage accordion-icon"></i>
+                        </button>
+                        <div class="accordion-content px-6 text-brand-text/70 font-light text-sm leading-relaxed">
+                            <p>Sim. O acompanhamento endocrinológico inclui a avaliação e o manejo de alterações relacionadas à tireoide, como hipotireoidismo e hipertireoidismo.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 6 -->
+                    <div class="accordion-item border border-brand-sand/40 rounded-2xl bg-brand-offwhite/30 overflow-hidden reveal-on-scroll">
+                        <button class="accordion-button w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                            <span class="font-medium text-brand-text text-[15px]">Atende pacientes com diabetes?</span>
+                            <i class="ph ph-caret-down text-brand-sage accordion-icon"></i>
+                        </button>
+                        <div class="accordion-content px-6 text-brand-text/70 font-light text-sm leading-relaxed">
+                            <p>Sim. O acompanhamento inclui questões relacionadas ao controle do diabetes (tipos 1 e 2) e à promoção geral da saúde metabólica.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 7 -->
+                    <div class="accordion-item border border-brand-sand/40 rounded-2xl bg-brand-offwhite/30 overflow-hidden reveal-on-scroll">
+                        <button class="accordion-button w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                            <span class="font-medium text-brand-text text-[15px]">Como faço para agendar uma consulta?</span>
+                            <i class="ph ph-caret-down text-brand-sage accordion-icon"></i>
+                        </button>
+                        <div class="accordion-content px-6 text-brand-text/70 font-light text-sm leading-relaxed">
+                            <p>Basta entrar em contato pelo WhatsApp de atendimento clicando nos botões da página. Nossa equipe irá verificar a disponibilidade de horários e auxiliar no processo de agendamento.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Contact CTA -->
+        <section id="contato" class="py-24 bg-brand-offwhite relative">
+            <div class="absolute inset-0 bg-brand-green-deep/5 mix-blend-multiply"></div>
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="bg-brand-white rounded-[2.5rem] p-8 md:p-16 shadow-xl shadow-brand-sand/20 border border-brand-sand/50 text-center reveal-on-scroll">
+                    
+                    <h2 class="font-serif text-3xl md:text-5xl text-brand-text mb-6">
+                        Vamos começar?
+                    </h2>
+                    <p class="text-brand-text/70 text-lg font-light mb-10 max-w-2xl mx-auto">
+                        Se você busca um acompanhamento endocrinológico mais próximo, individualizado e leve, entre em contato para agendar sua consulta.
+                    </p>
+                    
+                    <div class="flex justify-center mb-10">
+                        <div class="bg-brand-offwhite p-6 rounded-2xl text-left border border-brand-sand/30 flex flex-col sm:flex-row gap-6 items-center">
+                            <div class="w-20 h-20 rounded-full overflow-hidden shrink-0 border-2 border-white">
+                                <img src="logo.jpg" alt="Dra. Daniela" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1594824436998-3852277d33d7?auto=format&fit=crop&q=80&w=150&h=150'">
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-brand-text text-lg">Dra. Daniela Altoé</h3>
+                                <p class="text-brand-text/60 text-sm mb-2">Médica • CRM 52.132510-8</p>
+                                <div class="flex items-center gap-4 text-xs text-brand-text/80 font-light">
+                                    <span class="flex items-center gap-1"><i class="ph ph-map-pin text-brand-sage"></i> RJ — Zona Sul</span>
+                                    <span class="flex items-center gap-1"><i class="ph ph-laptop text-brand-sage"></i> Online (Brasil)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="https://wa.me/5521993691375" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-5 bg-brand-green-deep text-white rounded-full text-lg font-medium hover:bg-[#4a574d] transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        <i class="ph-fill ph-whatsapp-logo text-2xl"></i>
+                        Agendar minha consulta
+                    </a>
+                    <p class="mt-4 text-brand-text/50 text-xs font-light">
+                        Atendimento via WhatsApp: +55 21 99369-1375
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-white pt-20 pb-8 border-t border-brand-sand/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Main Footer Content Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+                
+                <!-- Brand Column -->
+                <div class="text-center md:text-left flex flex-col items-center md:items-start">
+                    <a href="#" class="inline-block mb-5 group">
+                        <h2 class="font-serif text-xl font-medium text-brand-text tracking-wide mb-1 group-hover:text-brand-green-deep transition-colors">DRA. DANIELA ALTOÉ</h2>
+                        <span class="text-[10px] tracking-[0.2em] text-brand-sage font-medium uppercase block">Endocrinologia</span>
+                    </a>
+                    <p class="text-brand-text/70 text-sm font-light leading-relaxed max-w-xs text-center md:text-left mb-4">
+                        Endocrinologia leve para cuidar de você por inteiro. Atendimento individualizado e focado no seu bem-estar.
+                    </p>
+                    <p class="text-sm font-medium text-brand-text/80 bg-brand-offwhite px-4 py-1.5 rounded-full inline-block border border-brand-sand/50">CRM 52.132510-8</p>
+                </div>
+                
+                <!-- Contact Column -->
+                <div class="text-center md:text-left flex flex-col items-center md:items-start">
+                    <h3 class="text-xs font-semibold text-brand-text uppercase tracking-widest mb-6">Atendimento</h3>
+                    <div class="space-y-4 text-sm text-brand-text/70 font-light">
+                        <div class="flex items-center justify-center md:justify-start gap-3">
+                            <div class="w-8 h-8 rounded-full bg-brand-offwhite flex items-center justify-center text-brand-sage shrink-0">
+                                <i class="ph ph-map-pin text-lg"></i>
+                            </div>
+                            <span>Rio de Janeiro — Zona Sul</span>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start gap-3">
+                            <div class="w-8 h-8 rounded-full bg-brand-offwhite flex items-center justify-center text-brand-sage shrink-0">
+                                <i class="ph ph-laptop text-lg"></i>
+                            </div>
+                            <span>Online para todo o Brasil</span>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start gap-3 mt-2">
+                            <div class="w-8 h-8 rounded-full bg-brand-green-deep flex items-center justify-center text-white shrink-0 shadow-sm">
+                                <i class="ph-fill ph-whatsapp-logo text-lg"></i>
+                            </div>
+                            <a href="https://wa.me/5521993691375" target="_blank" rel="noopener noreferrer" class="hover:text-brand-green-deep transition-colors font-medium">
+                                +55 21 99369-1375
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social / Links Column -->
+                <div class="text-center md:text-left flex flex-col items-center md:items-start">
+                    <h3 class="text-xs font-semibold text-brand-text uppercase tracking-widest mb-6">Acompanhe</h3>
+                    <a href="https://instagram.com/dradanielaaltoe" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3 text-sm text-brand-text/70 font-light hover:text-brand-green-deep transition-colors mb-6">
+                        <div class="w-10 h-10 rounded-full border border-brand-sand flex items-center justify-center group-hover:border-brand-sage group-hover:bg-brand-offwhite transition-all text-brand-sage">
+                            <i class="ph ph-instagram-logo text-xl group-hover:text-brand-green-deep transition-colors"></i>
+                        </div>
+                        @dradanielaaltoe
+                    </a>
+                    
+                    <div class="space-y-3 text-sm font-light text-brand-text/70 flex flex-col items-center md:items-start">
+                        <a href="#sobre" class="inline-block hover:text-brand-sage transition-colors">Sobre a profissional</a>
+                        <a href="#especialidades" class="inline-block hover:text-brand-sage transition-colors">Áreas de atuação</a>
+                        <a href="#faq" class="inline-block hover:text-brand-sage transition-colors">Dúvidas frequentes</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="pt-8 border-t border-brand-sand/40 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left text-xs text-brand-text/50 font-light">
+                <p>&copy; 2026 Dra. Daniela Altoé. Todos os direitos reservados.</p>
+                <p>As informações nesta página não substituem a consulta médica.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button (Mobile mainly) -->
+    <a href="https://wa.me/5521993691375" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all z-40 md:hidden" aria-label="Falar pelo WhatsApp">
+        <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Mobile Menu Toggle ---
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            const icon = document.getElementById('mobile-icon');
+
+            function toggleMenu() {
+                const isOpen = menu.classList.contains('menu-open');
+                
+                if (isOpen) {
+                    menu.classList.remove('menu-open');
+                    menu.classList.add('menu-closed');
+                    icon.classList.replace('ph-x', 'ph-list');
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    menu.classList.remove('menu-closed');
+                    menu.classList.add('menu-open');
+                    icon.classList.replace('ph-list', 'ph-x');
+                    icon.style.transform = 'rotate(90deg)';
+                }
+            }
+
+            btn.addEventListener('click', toggleMenu);
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (menu.classList.contains('menu-open')) {
+                        toggleMenu();
+                    }
+                });
+            });
+
+            // --- Sticky Header Style ---
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    header.classList.add('shadow-sm', 'bg-brand-white/95');
+                    header.classList.remove('bg-brand-white/90');
+                } else {
+                    header.classList.remove('shadow-sm', 'bg-brand-white/95');
+                    header.classList.add('bg-brand-white/90');
+                }
+            });
+
+            // --- Scroll Reveal Animation ---
+            const revealElements = document.querySelectorAll('.reveal-on-scroll');
+            
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.15, // Trigger when 15% visible
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            // --- FAQ Accordion Logic ---
+            const accordionItems = document.querySelectorAll('.accordion-item');
+
+            accordionItems.forEach(item => {
+                const button = item.querySelector('.accordion-button');
+                
+                button.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all others
+                    accordionItems.forEach(otherItem => {
+                        otherItem.classList.remove('active');
+                        otherItem.style.backgroundColor = 'rgba(245, 241, 234, 0.3)'; // reset bg
+                    });
+
+                    // Toggle current
+                    if (!isActive) {
+                        item.classList.add('active');
+                        item.style.backgroundColor = 'rgba(245, 241, 234, 0.8)'; // highlight bg when open
+                    }
+                });
+            });
+
+            // Set current year in footer dynamically (though requested 2026, it's good practice)
+            // document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>
